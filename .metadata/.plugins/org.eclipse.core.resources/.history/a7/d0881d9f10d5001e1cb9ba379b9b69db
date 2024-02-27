@@ -1,0 +1,87 @@
+package sv.edu.udb.serviciorest;
+
+import java.sql.SQLException;
+import java.util.List;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+import sv.edu.udb.model.*;
+
+@Path("artistas")
+public class ArtistasRest {
+    ArtistasDAO artistaDAO = new ArtistasDAO();
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getArtistas() throws SQLException{
+        List<Artistas> artistas = artistaDAO.findAll();
+        return Response.status(200).entity(artistas).build();
+    }
+
+    @GET
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getByArtistasId(@PathParam("id") int id) throws SQLException {
+        Artistas artista = artistaDAO.findById(id);
+        if(artista == null) {
+            return Response.status(404).build();
+        }
+        return Response.status(200).entity(artista).build();
+    }
+
+    @GET
+    @Path("{id}/discos")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getDiscosPorArtista(@PathParam("id") int id) {
+        try {
+            Artistas artista = artistaDAO.findById(id);
+            if (artista == null) {
+                return Response.status(Response.Status.NOT_FOUND).entity("Artista no encontrado").build();
+            }
+
+            DiscosDAO discosDAO = new DiscosDAO();
+            List<Discos> discos = discosDAO.obtenerDiscosPorIdArtista(id);
+
+            return Response.ok(discos).build();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error al obtener los discos").build();
+        }
+    }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response insertArtista(@FormParam("id_artista") int id, @FormParam("nombre_artista") String art, @FormParam("descripcion") String des) throws SQLException {
+        Artistas artista = new Artistas();
+        artista.setId_Artista(id);
+        artista.setNombre_Artista(art);
+        artista.setDescripcion(des);
+        artistaDAO.insertarArtista(artista);
+        return Response.status(204).header("No Content", "*").entity(artista).build();
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("{id}")
+    public Response updateArtista(@PathParam("id") int id, @FormParam("nombre_artista") String art, @FormParam("descripcion") String des) throws SQLException {
+        Artistas artista = artistaDAO.findById(id);
+        if(artista == null) {
+            return Response.status(404).header("NOT FOUND: Artista No Encontrado", "*").build();
+        }
+        artista.setNombre_Artista(art);
+        artista.setDescripcion(des);
+        artistaDAO.updateArtista(artista);
+        return Response.status(204).header("No Content", "*").entity(artista).build();
+    }
+
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("{id}")
+    public Response eliminarArtista(@PathParam("id") int id) throws SQLException{
+        Artistas artista = artistaDAO.findById(id);
+        if(artista == null) {
+            return Response.status(404).header("NOT FOUND: Artista No Encontrado", "*").build();
+        }
+        artistaDAO.deleteArtista(id);
+        return Response.status(204).header("No Content", "*").entity(artista).build();
+    }
+}

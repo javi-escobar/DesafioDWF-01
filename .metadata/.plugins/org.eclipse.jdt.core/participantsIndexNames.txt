@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+C:\Users\alexi\OneDrive\Documentos\Ciclo 03 2024\DWF\Lab\Taller\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\976843781.index
+\serviciorestartistasdiscos\src\main\resources

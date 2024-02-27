@@ -1,0 +1,11 @@
+127.0.0.1 - - [27/Feb/2024:09:46:23 -0600] "GET / HTTP/1.1" 404 687
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:09:49:25 -0600] "POST /serviciorestartistasdiscos/api/artistas HTTP/1.1" 201 73
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:09:51:17 -0600] "POST /serviciorestartistasdiscos/api/artistas HTTP/1.1" 201 65
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:09:53:45 -0600] "PUT /serviciorestartistasdiscos/api/artistas/14 HTTP/1.1" 204 -
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:09:54:47 -0600] "DELETE /serviciorestartistasdiscos/api/artistas/14 HTTP/1.1" 204 -
+127.0.0.1 - - [27/Feb/2024:10:56:38 -0600] "GET / HTTP/1.1" 404 687
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:10:57:54 -0600] "POST /serviciorestartistasdiscos/api/artistas HTTP/1.1" 400 670
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:10:58:01 -0600] "POST /serviciorestartistasdiscos/api/artistas HTTP/1.1" 201 -
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:10:59:40 -0600] "POST /serviciorestartistasdiscos/api/discos HTTP/1.1" 400 670
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:11:00:02 -0600] "POST /serviciorestartistasdiscos/api/discos HTTP/1.1" 400 670
+0:0:0:0:0:0:0:1 - - [27/Feb/2024:11:00:05 -0600] "POST /serviciorestartistasdiscos/api/discos HTTP/1.1" 201 -

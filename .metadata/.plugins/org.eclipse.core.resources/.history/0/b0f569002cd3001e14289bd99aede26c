@@ -1,0 +1,32 @@
+package sv.edu.udb.model;
+import java.sql.SQLException;
+import java.util.ArrayList;
+public class ArtistasDAO extends AppConnection{
+	
+	/**
+	 * @param artistas
+	 * @throws SQLException
+	 */
+	public void insertarArtista(Artistas artista) throws SQLException {
+		Conectar();
+		ps = con.prepareStatement("insert into artistas (nombre_artista) values (?)");
+		ps.setString(1, artista.getNombre_Artista());
+		ps.setString(2, artista.getDescripcion());
+		ps.execute();
+		Desconectar();
+	}
+	
+	/**
+	 * @param artistas
+	 * @throws SQLException
+	 */
+	public void updateArtista(Artistas artista) throws SQLException {
+		Conectar();
+		ps = con.prepareStatement("update artistas set nombre_artista = ?, descripcion = ? where id_artista = ?");
+		ps.setString(1, artista.getNombre_Artista());
+		ps.setString(2, artista.getDescripcion());
+		ps.setInt(3, artista.getId_Artista());
+		ps.executeUpdate();
+		Desconectar();
+	}
+}

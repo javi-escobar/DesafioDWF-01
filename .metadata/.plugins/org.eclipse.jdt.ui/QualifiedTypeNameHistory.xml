@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="sv.edu.udb.model.Artistas"/>
+    <fullyQualifiedTypeName name="sv.edu.udb.model.ArtistasDAO"/>
+    <fullyQualifiedTypeName name="sv.edu.udb.model.DiscosDAO"/>
+</qualifiedTypeNameHistroy>

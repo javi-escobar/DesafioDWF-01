@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\alexi\OneDrive\Documentos\Ciclo 03 2024\DWF\Lab\Taller\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+965831652.index
+3201678980.index
+320564625.index
+528462931.index
+3711117882.index
+94971143.index
